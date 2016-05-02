@@ -1,23 +1,34 @@
 <head>
-  <title>simple</title>
+    <title>simple</title>
 </head>
 
 <body>
-  <h1>Validator</h1>
-  {{> validator}}
+    <h1>Validator</h1>
+    {{> validator}}
 </body>
 
 <template name="validator">
-  <!-- <button>Click Me</button>
+    <!-- <button>Click Me</button>
   <p>You've pressed the button {{counter}} times.</p> -->
-  <form id="validate-form">
-    <input type="text" name="input" placeholder="type something..."><br>
-    <select name="option">
-      <option value="isEmail">Valid Email</option>
-      <option value="isCurrency">Is Currency</option>
-      <option value="isDate">Valid Date</option>
-    </select>
-    <br>
-    <button id="submit_button">Submit</button>
-  </form>
+    <form id="validate-form">
+        <input type="text" name="input" placeholder="type something..."><br>
+        <select name="option">
+            <option value="isEmail">Valid Email</option>
+            <option value="isCurrency">Is Currency</option>
+            <option value="isDate">Valid Date</option>
+        </select>
+        <br>
+        <button id="submit_button">Submit</button>
+    </form>
+
+    <div>
+        <h2>Search History</h2>
+        <section>
+            <ul>
+                {{#each searchHistory}}
+                  <li>{{this.searchTerm}} : {{this.searchOption}}</li>
+                {{/each}}
+            </ul>
+        </section>
+    </div>
 </template>
