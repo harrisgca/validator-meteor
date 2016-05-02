@@ -3,8 +3,10 @@
 </head>
 
 <body>
+  <div class="content">
     <h1>Validator</h1>
     {{> validator}}
+  </div>
 </body>
 
 <template name="validator">
@@ -26,7 +28,16 @@
         <section>
             <ul>
                 {{#each searchHistory}}
-                  <li>{{this.searchTerm}} : {{this.searchOption}}</li>
+                    {{#if validResult this}}
+                        <li class="result valid">{{this.searchTerm}}
+                            :
+                            {{this.searchOption}}</li>
+                    {{else}}
+                        <li class="result">{{this.searchTerm}}
+                            :
+                            {{this.searchOption}}</li>
+                    {{/if}}
+
                 {{/each}}
             </ul>
         </section>

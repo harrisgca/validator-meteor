@@ -1,1 +1,16 @@
 /* CSS declarations go here */
+.content{
+  height: 100%;
+  padding: 0 20vw;
+}
+@media (max-width: 768px) {
+  .content{
+    padding: 0 5vw;
+  }
+}
+.result{
+  color: red;
+}
+.result.valid{
+  color: green;
+}

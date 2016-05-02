@@ -18,34 +18,33 @@ const validate = function(input, option) {
     return isValid;
 };
 
-const addToHistory = function(instance, searchTerm, searchOption) {
+const addToHistory = function(instance, searchTerm, searchOption, result) {
     let currentHistory = instance.searchHistory.get();
     let length = currentHistory.length;
     let returnObj = {
         searchTerm: searchTerm,
-        searchOption: searchOption
+        searchOption: searchOption,
+        result: result
     };
-    if (length === 10) {
+    if (length === 5) {
         currentHistory.shift();
         currentHistory.push(returnObj);
-    }else{
-      currentHistory.push(returnObj);
+    } else {
+        currentHistory.push(returnObj);
     }
     instance.searchHistory.set(currentHistory);
-    console.log('current History is: ', instance.searchHistory.get());
 };
 
 Template.validator.helpers({
-    // counter() {
-    //   return Template.instance().counter.get();
-    // },
     isValid() {
         return Template.instance().isValid.get();
     },
     searchHistory() {
         return Template.instance().searchHistory.get();
+    },
+    validResult(){
+      return this.result;
     }
-
 });
 
 Template.validator.events({
@@ -58,6 +57,6 @@ Template.validator.events({
         let isValid = validate(input, option);
         instance.isValid.set(isValid);
 
-        addToHistory(instance, input, option);
+        addToHistory(instance, input, option, isValid);
     },
 });
