@@ -1,16 +1,30 @@
 /* CSS declarations go here */
-.content{
-  height: 100%;
-  padding: 0 20vw;
+
+.content {
+    height: 100%;
+    text-align: center;
+    padding: 0 20vw;
 }
 @media (max-width: 768px) {
-  .content{
-    padding: 0 5vw;
-  }
+    .content {
+        padding: 0 5vw;
+    }
 }
-.result{
-  color: red;
+.result {
+    color: red;
 }
-.result.valid{
-  color: green;
+.result.valid {
+    color: green;
+}
+h1 {
+    font-size: 7em;
+}
+input {
+    width: 90%;
+    height: 50px;
+    border: 2px solid blue;
+    border-radius: 20px;
+}
+input:focus{
+  outline: none;
 }
